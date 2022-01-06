@@ -1,4 +1,5 @@
 import { Client } from '@notionhq/client'
+
 export default () => {
   const client = new Client({ auth: process.env.NOTION_ACCESS_TOKEN })
   const digitalGardenDBId = process.env.NOTION_DG_DB_ID
@@ -13,9 +14,9 @@ export default () => {
 
   const getPostList = () => client.databases.query({
     database_id: digitalGardenDBId
-  })
+  }).then(data => data.results).catch(error => [])
 
-  const getPostById = (id) => {
+  const getPostData = (id) => {
     const pageInfo = getPageInfo(id)
     const pageData = getPageContent(id)
     return Promise.all([pageInfo, pageData]).then(([pageInfo, pageData]) => ({ pageInfo, pageData }))
@@ -23,6 +24,6 @@ export default () => {
 
   return {
     getPostList,
-    getPostById
+    getPostData
   }
 }
