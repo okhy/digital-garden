@@ -3,7 +3,9 @@
 
 ## data
 - [x] downloading data from notion ?
-- [ ] parse post data - https://github.com/nartc/notion-stuff/blob/main/libs/blocks-html-parser/README.md
+- [ ] parse post data
+  - solution for nested blocks (on-the-fly requests?)
+  - https://github.com/nartc/notion-stuff/blob/main/libs/blocks-html-parser/README.md
 - [ ] figure out post linking
 - [ ] locally copy images with caption?
 
