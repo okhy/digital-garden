@@ -1,15 +1,22 @@
 # todo:
-- [ ] general design
-- MVP
+- general design
+- MVP - markdown based simple blog site
   - blog list page
   - post page
+- Stage 2
+  - Notion integration
+    - [ ] figure out post linking
+    - [ ] tag system?
+- Stage 3
+  - home page
+  - about page
+- Stage 4
+  - workshop page
+
 
 ## data
-- [ ] get data from markdown files
-  - use frontmatter for additional post data?
-  - render html based on markdown
-- [ ] parse post data - marked.js
-- [ ] figure out post linking
+- [x] get data from markdown files
+- [ ] implement code formatting
 
 ## ideas
 - [ ] d2js graph
