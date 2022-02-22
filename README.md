@@ -1,13 +1,15 @@
 # todo:
 - [ ] general design
+- MVP
+  - blog list page
+  - post page
 
 ## data
-- [x] downloading data from notion ?
-- [ ] parse post data
-  - solution for nested blocks (on-the-fly requests?)
-  - https://github.com/nartc/notion-stuff/blob/main/libs/blocks-html-parser/README.md
+- [ ] get data from markdown files
+  - use frontmatter for additional post data?
+  - render html based on markdown
+- [ ] parse post data - marked.js
 - [ ] figure out post linking
-- [ ] locally copy images with caption?
 
 ## ideas
 - [ ] d2js graph

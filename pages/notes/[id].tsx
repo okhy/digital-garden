@@ -1,13 +1,11 @@
 import { useRouter } from "next/router"
 // services
-import notionClient from "../../services/notion.service"
-// utils
-import HTMLParser from "../../utils/notionBlockToHTMLParser"
+import notesService from "../../services/notes.service"
 
 const NotePage: React.FC<{ htmlContent: any }> = ({ htmlContent }) => {
   const router = useRouter()
   const { id } = router.query
-  console.log(htmlContent)
+  // console.log(htmlContent)
 
   return <p>Post: {id}</p>
 }
@@ -15,19 +13,20 @@ const NotePage: React.FC<{ htmlContent: any }> = ({ htmlContent }) => {
 export default NotePage
 
 export const getStaticProps = async ({ params }) => {
-  const client = notionClient()
+  const client = notesService()
   const postData = await client.getPostData(params.id)
+  console.log(postData)
 
   return {
     props: {
-      htmlContent: HTMLParser(postData.pageData.results),
+      htmlContent: postData.htmlContent,
     },
   }
 }
 
 export const getStaticPaths = async () => {
-  const client = notionClient()
-  const postList = await client.getPostList()
+  const client = notesService()
+  const postList = client.getPostList()
   const IDList = postList.map((postData) => ({ params: { id: postData.id } }))
 
   return {

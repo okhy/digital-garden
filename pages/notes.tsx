@@ -6,16 +6,16 @@ import Head from "next/head"
 import Footer from "../components/footer"
 import Link from "next/link"
 // services
-import notionClient from "../services/notion.service"
+import notesService from "../services/notes.service"
 
-type TNotionPageProps = {
+type TNotesPageProps = {
   postList: {
     id: string
     title: string
   }[]
 }
 
-const NotionPage: React.FC<TNotionPageProps> = ({ postList }) => {
+const NotesPage: React.FC<TNotesPageProps> = ({ postList }) => {
   return (
     <div className={styles.container}>
       <Head>
@@ -28,7 +28,7 @@ const NotionPage: React.FC<TNotionPageProps> = ({ postList }) => {
         <h1 className={styles.title}>Welcome to Notion API testing page</h1>
 
         <div className={styles.grid}>
-          {postList.map((post) => (
+          {postList?.map((post) => (
             <Link key={post.id} href={`/notes/${post.id}`}>
               <a>{post.title}</a>
             </Link>
@@ -40,19 +40,16 @@ const NotionPage: React.FC<TNotionPageProps> = ({ postList }) => {
   )
 }
 
-export default NotionPage
+export default NotesPage
 
 export const getStaticProps = async () => {
   try {
-    const client = notionClient()
-    const postList = await client.getPostList()
+    const client = notesService()
+    const postList = client.getPostList()
 
     return {
       props: {
-        postList: postList.map((data) => ({
-          id: data.id,
-          title: data.properties.Name.title[0].plain_text,
-        })),
+        postList,
       },
     }
   } catch (error) {
