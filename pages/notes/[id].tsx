@@ -1,13 +1,12 @@
+import notesService from "../../services/notes.service"
 import { useRouter } from "next/router"
 // services
-import notesService from "../../services/notes.service"
 
 const NotePage: React.FC<{ htmlContent: any }> = ({ htmlContent }) => {
-  const router = useRouter()
-  const { id } = router.query
-  // console.log(htmlContent)
+  // const router = useRouter()
+  // const { id } = router.query
 
-  return <p>Post: {id}</p>
+  return <div dangerouslySetInnerHTML={{ __html: htmlContent }} />
 }
 
 export default NotePage
@@ -15,7 +14,6 @@ export default NotePage
 export const getStaticProps = async ({ params }) => {
   const client = notesService()
   const postData = await client.getPostData(params.id)
-  console.log(postData)
 
   return {
     props: {
