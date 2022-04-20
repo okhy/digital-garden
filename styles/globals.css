@@ -4,6 +4,7 @@ body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  background-color: #fafafa;
 }
 
 a {
@@ -13,4 +14,36 @@ a {
 
 * {
   box-sizing: border-box;
+  color: #222;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  line-height: 1.2;
+}
+h1 {
+  font-size: 80px;
+  line-height: 1;
+  font-weight: 500;
+  font-style: italic;
+}
+h2 {
+  font-size: 21px;
+}
+p,
+ol,
+ul {
+  color: #444;
+  font-size: 14px;
+  line-height: 1.6;
+}
+strong, b {
+  color: #000;
+}
+blockquote {
+  font-style: italic;
 }

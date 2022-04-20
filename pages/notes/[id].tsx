@@ -1,12 +1,17 @@
 import notesService from "../../services/notes.service"
 import { useRouter } from "next/router"
-// services
+// styles
+import styles from './styles.module.css'
 
 const NotePage: React.FC<{ htmlContent: any }> = ({ htmlContent }) => {
-  // const router = useRouter()
-  // const { id } = router.query
-
-  return <div dangerouslySetInnerHTML={{ __html: htmlContent }} />
+  return (
+    <div className={styles.wrapper}>
+      <div
+        className={styles.content}
+        dangerouslySetInnerHTML={{ __html: htmlContent }}
+      />
+    </div>
+  )
 }
 
 export default NotePage

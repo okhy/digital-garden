@@ -3,6 +3,7 @@
 - MVP - markdown based simple blog site
   - blog list page
   - post page
+  - basic styling
 - Stage 2
   - Notion integration
     - [ ] figure out post linking

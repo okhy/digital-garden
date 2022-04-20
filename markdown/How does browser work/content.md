@@ -1,23 +1,18 @@
----
-title: How does browser work?
-slug: how-does-browser-work
----
-
 # How does browser work? - in-depth
 
 Created: December 31, 2021 8:36 PM
 
 ![Untitled.png](Untitled.png)
 
-# Questions:
+## Questions:
 
 - What's "the timeline"?
 - Critical rendering path?
 - FOUC - Flash of unstyled Content?
 
-## Processes and threads
+### Processes and threads
 
-# Navigation Phase
+## Navigation Phase
 
 [https://cabulous.medium.com/how-does-browser-work-in-2019-part-ii-navigation-342b27e56d7b](https://cabulous.medium.com/how-does-browser-work-in-2019-part-ii-navigation-342b27e56d7b)
 
@@ -27,7 +22,7 @@ Created: December 31, 2021 8:36 PM
 4. Committing navigation
 5. Rendering page
 
-# Rendering Phase
+## Rendering Phase
 
 [https://cabulous.medium.com/how-does-browser-work-in-2019-part-iii-rendering-phase-i-850c8935958f](https://cabulous.medium.com/how-does-browser-work-in-2019-part-iii-rendering-phase-i-850c8935958f)
 
@@ -35,14 +30,14 @@ Created: December 31, 2021 8:36 PM
 
 [https://gist.github.com/faressoft/36cdd64faae21ed22948b458e6bf04d5](https://gist.github.com/faressoft/36cdd64faae21ed22948b458e6bf04d5)
 
-## Parsing
+### Parsing
 
 1. HTML parsing - unconventional parsing - Browser will try to figure out proper html tag ending based on some rules (uses **context-free grammar** - to research). HTML DOM Tree is build incrementally by matching tags
     1. CSS parsing (when tag is found) - conventional parsing → separate page about? [https://developer.mozilla.org/en-US/docs/Web/CSS/Specificity](https://developer.mozilla.org/en-US/docs/Web/CSS/Specificity)
     2. JS parsing (when tag is found) - **can interrupt, or restart HTML or CSS parsing!**
 
 
-### The script tag.
+#### The script tag.
 
 When HTML parser will encounter *<script>* or *<style>* tag it will parse/execute it immedietaly, meaning multiple parsers *can* run at the same time. What's good to know is that JavaScript can change HTML / CSS on the page, thus block/restart HTML / CSS parsers. For that reason, for scripts that rely on html elements common practice became placin <script> tags at the bottom (so they can reference elements that were parsed before the script execution.
 
